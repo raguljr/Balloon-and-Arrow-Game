@@ -74,24 +74,27 @@
 				 currentArrowY=parseInt(arrow.css("top").slice(0,-2));
 			
 				  var x1;
-			      var y1 = bow.offset().top;
+			      var y1 = arrow.offset().top;
 			      var x2;
 			      var y2 = bubble.offset().top;
-			      
+
+			      var hei=parseInt(bubble.css("height").slice(0,-2));
+			      console.log(hei);
 			      //x1=parseInt(x1);
 			      x1=currentArrowX;
 			      x2=currentBubbleX;
 			      
-			      if ((parseInt(y1)>=parseInt(y2)-100 && parseInt(y1)<=parseInt(y2)+100) && (parseInt(x1)>=parseInt(x2)-50 && parseInt(x1)<=parseInt(x2)+50)) {
-			      	//alert("bubbleX : "+x2+"bubbleY : "+y2+" arrowX"+ x1+" arrowY"+ y1);
-			      	//bubble.hide("explode", {pieces: 16 }, 2000);
+			      if ((parseInt(y1)>=parseInt(y2) && parseInt(y1)<=parseInt(y2)+100) && (parseInt(x1)>=parseInt(x2)-50 && parseInt(x1)<=parseInt(x2)+50)) {
+			      	//bubble.css("background-image","url(img/boom.png)");
 			      	bubble.hide();
-			      	//$('.bubble').hide("explode", {pieces: 16 }, 2000);
+			      	document.getElementById('play').play();
+			      	//alert(y1+" "+parseInt(y2) +" "+parseInt(y2+100));
 			      }
-			      //console.log(parseInt(y1)+" "+parseInt(y2)+" "+parseInt(x1)+" "+parseInt(x2));
-			     //console.log(currentArrowX);
-			//console.log(currentBubble);
-			//$( ".pos" ).text("bubbleX : "+currentBubbleX+"bubbleY : "+currentBubbleY+" arrowX"+ currentArrowX+" arrowY"+ currentArrowY);
+
+			      // if((parseInt(y2)>=parseInt(y1) && parseInt(y1)<=parseInt(hei+parseInt(y2)))&&(parseInt(x1)>=parseInt(x2)-50 && parseInt(x1)<=parseInt(x2)+50)){
+			      // 		bubble.hide();
+			      // }
+			      
 			}
 			setInterval(inter,1); 
 			
@@ -113,6 +116,7 @@
 
 	</div>
 </div>
+<audio id="play" src="sound/blast.wav"></audio>
 <div class="pos">
 	
 </div>
