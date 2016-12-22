@@ -75,7 +75,7 @@
 					currentBubbleY=parseInt(bubble.css("top").slice(0,-2));
 					
 					//console.log(currentBubble,currentArrow);
-					
+
 			  	});  
 
 			function inter(){
@@ -104,11 +104,11 @@
 			      	//$('.bubble').hide("explode", {pieces: 16 }, 2000);
 			      }
 			      //console.log(parseInt(y1)+" "+parseInt(y2)+" "+parseInt(x1)+" "+parseInt(x2));
-			     console.log(currentArrowX);
+			     //console.log(currentArrowX);
 
 
 			//console.log(currentBubble);
-			$( ".pos" ).text("bubbleX : "+currentBubbleX+"bubbleY : "+currentBubbleY+" arrowX"+ currentArrowX+" arrowY"+ currentArrowY);
+			//$( ".pos" ).text("bubbleX : "+currentBubbleX+"bubbleY : "+currentBubbleY+" arrowX"+ currentArrowX+" arrowY"+ currentArrowY);
 			}
 			setInterval(inter,1); 
 			
@@ -123,12 +123,13 @@
 <body>
 <div class="container">
 	<div class="arrow">
-		<span id="bow">}</span>
+		<span id="bow"><img src="bow.png" height="50px" width="100px"></span>
 		
 	</div>
 	<div class="ground">
-		<span id="arrowObj">----></span>
-		<div class="bubble"></div>
+		<span id="arrowObj"><img src="arr2.png" height="50px" width="100px"></span>
+		<div class="bubble"></div> 
+		<!-- <img src="baloon.png" height="50px" width="100px" class="baloon"> -->
 
 	</div>
 </div>
