@@ -1,0 +1,37 @@
+.container{
+	position:relative;
+
+}
+.arrow{
+	height:500px;
+	width:100px;
+	background-color: grey;
+	float: left;
+}
+#arrowObj{
+	position: relative;
+	top:150px;
+}
+#bow{
+	position: relative;
+	top:150px;
+}
+.ground{
+	height:500px;
+	width:700px;
+	background-color: green;
+	background-image: url('../img/bg.jpg');
+	background-size: cover;
+}
+.bubble{
+	position: relative;
+	top:500px;
+	left:600px;
+	height:100px;
+	width:50px;
+	/*border-radius: 100%;*/
+	/*background-color: yellow;*/
+	background-image: url('../img/baloon.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bahubali Game</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<script src="js/jquery-3.1.1.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			var area=$('.arrow');
+			var arrow=$('#arrowObj');
+			var bow=$('#bow');
+			var bubble=$('.bubble');
+			var currentBubbleX = 0;
+			var currentBubbleY = 0;
+			var currentArrowX = 0;
+			var currentArrowY = 0;
+			var bowX = 0;
+			var bowY = 0;
+			var x=0;
+			var y=0;
+			
+			function createBaloon(){
+				//var leftPos=Math.floor(Math.random()*550)+100;
+				var leftPos="600px";
+				bubble.css({
+					"left":leftPos,
+					"top": "500px"
+				});
+				bubble.animate({
+					"top":"-60px"
+				},6100);
+				/*bubble.animate({
+					"top":"500px"
+				});*/
+				bubble.animate({"top":"500px"},6100);
+				currentArrowX=parseInt(arrow.css("left").slice(0,-2));
+				currentBubbleY=parseInt(bubble.css("top").slice(0,-2));
+				bowX=parseInt(bow.css("left").slice(0,-2));
+				bowY=parseInt(bow.css("top").slice(0,-2));
+				//console.log(currentArrow,currentBubble);
+			}	
+			setInterval(createBaloon,2000);
+			
+			area.on( "mousemove", function( event ) {
+				x=event.pageX-40;
+				y=event.pageY;
+				bow.css({"left":x,"top":y});
+				arrow.css({"left":x-40,"top":y});
+			  	//$( ".pos" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+			  	
+			});
+			
+			
+			area.on( "mousedown", function( event ) {
+				 x=event.pageX-40;
+				y=event.pageY;
+				arrow.css({"left":x,"top":y});
+			  	//$( ".pos" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+			  	area.off("mousemove");
+			});
+			area.mouseup(function(){
+			  		arrow.animate({"left":"700px"},2000);
+			  		currentArrowX=parseInt(arrow.css("left").slice(0,-2));
+					currentBubbleY=parseInt(bubble.css("top").slice(0,-2));
+					
+					//console.log(currentBubble,currentArrow);
+			  	});  
+			function inter(){
+				 currentBubbleY=parseInt(bubble.css("top").slice(0,-2));
+				 currentBubbleX=parseInt(bubble.css("left").slice(0,-2));
+				 currentArrowX=parseInt(arrow.css("left").slice(0,-2));
+				 currentArrowY=parseInt(arrow.css("top").slice(0,-2));
+			
+				  var x1;
+			      var y1 = bow.offset().top;
+			      var x2;
+			      var y2 = bubble.offset().top;
+			      
+			      //x1=parseInt(x1);
+			      x1=currentArrowX;
+			      x2=currentBubbleX;
+			      
+			      if ((parseInt(y1)>=parseInt(y2)-100 && parseInt(y1)<=parseInt(y2)+100) && (parseInt(x1)>=parseInt(x2)-50 && parseInt(x1)<=parseInt(x2)+50)) {
+			      	//alert("bubbleX : "+x2+"bubbleY : "+y2+" arrowX"+ x1+" arrowY"+ y1);
+			      	//bubble.hide("explode", {pieces: 16 }, 2000);
+			      	bubble.hide();
+			      	//$('.bubble').hide("explode", {pieces: 16 }, 2000);
+			      }
+			      //console.log(parseInt(y1)+" "+parseInt(y2)+" "+parseInt(x1)+" "+parseInt(x2));
+			     //console.log(currentArrowX);
+			//console.log(currentBubble);
+			//$( ".pos" ).text("bubbleX : "+currentBubbleX+"bubbleY : "+currentBubbleY+" arrowX"+ currentArrowX+" arrowY"+ currentArrowY);
+			}
+			setInterval(inter,1); 
+			
+			
+			
+		});
+	</script>
+</head>
+<body>
+<div class="container">
+	<div class="arrow">
+		<span id="bow"><img src="img/bow.png" height="50px" width="100px"></span>
+		
+	</div>
+	<div class="ground">
+		<span id="arrowObj"><img src="img/arr2.png" height="50px" width="100px"></span>
+		<div class="bubble"></div> 
+		<!-- <img src="baloon.png" height="50px" width="100px" class="baloon"> -->
+
+	</div>
+</div>
+<div class="pos">
+	
+</div>
+</body>
+</html>
