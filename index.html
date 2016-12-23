@@ -20,6 +20,8 @@
 			var bowY = 0;
 			var x=0;
 			var y=0;
+			var tries=0;
+			var hit=0;
 			
 			function createBaloon(){
 				//var leftPos=Math.floor(Math.random()*550)+100;
@@ -61,11 +63,22 @@
 			  	area.off("mousemove");
 			});
 			area.mouseup(function(){
-			  		arrow.animate({"left":"700px"},2000);
+					tries=tries+1;
+			  		arrow.animate({"left":"1050px"},2000);
 			  		currentArrowX=parseInt(arrow.css("left").slice(0,-2));
 					currentBubbleY=parseInt(bubble.css("top").slice(0,-2));
-					
+					document.getElementById('playarrow').play();
 					//console.log(currentBubble,currentArrow);
+
+					area.on( "mousemove", function( event ) {
+					x=event.pageX-40;
+					y=event.pageY;
+					bow.css({"left":x,"top":y});
+					//arrow.css({"left":x-40,"top":y});
+				  	//$( ".pos" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+			  	
+			});
+
 			  	});  
 			function inter(){
 				 currentBubbleY=parseInt(bubble.css("top").slice(0,-2));
@@ -86,14 +99,24 @@
 			      
 			      if ((parseInt(y1)>=parseInt(y2) && parseInt(y1)<=parseInt(y2)+100) && (parseInt(x1)>=parseInt(x2)-50 && parseInt(x1)<=parseInt(x2)+50)) {
 			      	//bubble.css("background-image","url(img/boom.png)");
+			      	hit=hit+1;
 			      	bubble.hide();
+			      	
 			      	document.getElementById('play').play();
+			      	function disp(){
+			      		bubble.show();
+			      	}
+			      	setTimeout(disp,2000);
+			      	
+			      	//bubble.hide().delay(3000).fadeIn(100);
+			      	//bubble.delay(2000).show();
 			      	//alert(y1+" "+parseInt(y2) +" "+parseInt(y2+100));
 			      }
 
 			      // if((parseInt(y2)>=parseInt(y1) && parseInt(y1)<=parseInt(hei+parseInt(y2)))&&(parseInt(x1)>=parseInt(x2)-50 && parseInt(x1)<=parseInt(x2)+50)){
 			      // 		bubble.hide();
 			      // }
+			      $('.pos').text("Tries:"+tries+" Hits:"+hit);
 			      
 			}
 			setInterval(inter,1); 
@@ -117,6 +140,7 @@
 	</div>
 </div>
 <audio id="play" src="sound/blast.wav"></audio>
+<audio id="playarrow" src="sound/arrow.wav"></audio>
 <div class="pos">
 	
 </div>
