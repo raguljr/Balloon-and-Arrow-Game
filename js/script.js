@@ -89,8 +89,8 @@ $(document).ready(function() {
     area.mouseup(function() {
         tries = tries + 1;
         arrow.animate({ "left": "1050px" }, 2000);
-        currentArrowX = parseInt(arrow.css("left").slice(0, -2));
-        currentBubbleY = parseInt(bubble_0.css("top").slice(0, -2));
+        // currentArrowX = parseInt(arrow.css("left").slice(0, -2));
+        // currentBubbleY = parseInt(bubble_0.css("top").slice(0, -2));
         document.getElementById('playarrow').play();
         //console.log(currentBubble,currentArrow);
 
@@ -147,7 +147,7 @@ $(document).ready(function() {
 
         if ((parseInt(y1) >= parseInt(y12) && parseInt(y1) <= parseInt(y12) + 100) && (parseInt(x1) >= parseInt(x12) - 50 && parseInt(x1) <= parseInt(x12) + 50)) {
             //bubble.css("background-image","url(img/boom.png)");
-            hit = hit + 1;
+            hit++;
             bubble_1.hide();
 
             document.getElementById('play').play();
@@ -161,7 +161,7 @@ $(document).ready(function() {
 
         if ((parseInt(y1) >= parseInt(y22) && parseInt(y1) <= parseInt(y22) + 100) && (parseInt(x1) >= parseInt(x22) - 50 && parseInt(x1) <= parseInt(x22) + 50)) {
             //bubble.css("background-image","url(img/boom.png)");
-            hit = hit + 1;
+            hit++;
             bubble_2.hide();
 
             document.getElementById('play').play();
