@@ -18,15 +18,15 @@ $(document).ready(function() {
     var tries = 0;
     var hit = 0;
     var bubble;
-    var aa, aaa, aaaa;
-    aa = $('.bubble');
-    aaa = $('.bubble1');
-    aaaa = $('.bubble2');
+    var bubble_0, bubble_1, bubble_2;
+    bubble_0 = $('.bubble');
+    bubble_1 = $('.bubble1');
+    bubble_2 = $('.bubble2');
 
     function createBaloon() {
 
-        var a = [aa, aaa, aaaa];
-        var b = Math.floor(Math.random() * 3);
+        // var a = [bubble_0, bubble_1, bubble_2];
+        // var b = Math.floor(Math.random() * 3);
 
         //bubble=a[b];
         var leftPos;
@@ -34,35 +34,35 @@ $(document).ready(function() {
         leftPos = p[Math.floor(Math.random() * 3)];
         //var leftPos=Math.floor(Math.random()*550)+100;
         // var leftPos="600px";
-        aa.css({
+        bubble_0.css({
             "left": p[0],
             "top": "500px"
         });
-        aa.animate({
+        bubble_0.animate({
             "top": "-60px"
         }, 4100);
-        aa.animate({ "top": "500px" }, 4100);
+        bubble_0.animate({ "top": "500px" }, 4100);
 
-        aaa.css({
+        bubble_1.css({
             "left": p[1],
             "top": "500px"
         });
-        aaa.animate({
+        bubble_1.animate({
             "top": "-60px"
         }, 5400);
-        aaa.animate({ "top": "500px" }, 5400);
+        bubble_1.animate({ "top": "500px" }, 5400);
 
-        aaaa.css({
+        bubble_2.css({
             "left": p[2],
             "top": "500px"
         });
-        aaaa.animate({
+        bubble_2.animate({
             "top": "-60px"
         }, 6400);
-        aaaa.animate({ "top": "500px" }, 6100);
+        bubble_2.animate({ "top": "500px" }, 6100);
 
         currentArrowX = parseInt(arrow.css("left").slice(0, -2));
-        currentBubbleY = parseInt(aa.css("top").slice(0, -2));
+        currentBubbleY = parseInt(bubble_0.css("top").slice(0, -2));
         bowX = parseInt(bow.css("left").slice(0, -2));
         bowY = parseInt(bow.css("top").slice(0, -2));
         //console.log(currentArrow,currentBubble);
@@ -90,7 +90,7 @@ $(document).ready(function() {
         tries = tries + 1;
         arrow.animate({ "left": "1050px" }, 2000);
         currentArrowX = parseInt(arrow.css("left").slice(0, -2));
-        currentBubbleY = parseInt(aa.css("top").slice(0, -2));
+        currentBubbleY = parseInt(bubble_0.css("top").slice(0, -2));
         document.getElementById('playarrow').play();
         //console.log(currentBubble,currentArrow);
 
@@ -106,23 +106,23 @@ $(document).ready(function() {
     });
 
     function inter() {
-        currentBubbleY = parseInt(aa.css("top").slice(0, -2));
-        currentBubbleX = parseInt(aa.css("left").slice(0, -2));
-        currentBubble1Y = parseInt(aaa.css("top").slice(0, -2));
-        currentBubble1X = parseInt(aaa.css("left").slice(0, -2));
-        currentBubble2Y = parseInt(aaaa.css("top").slice(0, -2));
-        currentBubble2X = parseInt(aaaa.css("left").slice(0, -2));
+        currentBubbleY = parseInt(bubble_0.css("top").slice(0, -2));
+        currentBubbleX = parseInt(bubble_0.css("left").slice(0, -2));
+        currentBubble1Y = parseInt(bubble_1.css("top").slice(0, -2));
+        currentBubble1X = parseInt(bubble_1.css("left").slice(0, -2));
+        currentBubble2Y = parseInt(bubble_2.css("top").slice(0, -2));
+        currentBubble2X = parseInt(bubble_2.css("left").slice(0, -2));
         currentArrowX = parseInt(arrow.css("left").slice(0, -2));
         currentArrowY = parseInt(arrow.css("top").slice(0, -2));
 
         var x1;
         var y1 = arrow.offset().top;
         var x2, x12, x22;
-        var y2 = aa.offset().top;
-        var y12 = aaa.offset().top;
-        var y22 = aaaa.offset().top;
+        var y2 = bubble_0.offset().top;
+        var y12 = bubble_1.offset().top;
+        var y22 = bubble_2.offset().top;
 
-        var hei = parseInt(aa.css("height").slice(0, -2));
+        var hei = parseInt(bubble_0.css("height").slice(0, -2));
         console.log(hei);
         //x1=parseInt(x1);
         x1 = currentArrowX;
@@ -134,12 +134,12 @@ $(document).ready(function() {
             //bubble.css("background-image","url(img/boom.png)");
             hit++;
 
-            aa.hide();
+            bubble_0.hide();
 
             document.getElementById('play').play();
 
             function disp() {
-                aa.show();
+                bubble_0.show();
             }
             setTimeout(disp, 2000);
 
@@ -148,12 +148,12 @@ $(document).ready(function() {
         if ((parseInt(y1) >= parseInt(y12) && parseInt(y1) <= parseInt(y12) + 100) && (parseInt(x1) >= parseInt(x12) - 50 && parseInt(x1) <= parseInt(x12) + 50)) {
             //bubble.css("background-image","url(img/boom.png)");
             hit = hit + 1;
-            aaa.hide();
+            bubble_1.hide();
 
             document.getElementById('play').play();
 
             function disp() {
-                aaa.show();
+                bubble_1.show();
             }
             setTimeout(disp, 2000);
 
@@ -162,12 +162,12 @@ $(document).ready(function() {
         if ((parseInt(y1) >= parseInt(y22) && parseInt(y1) <= parseInt(y22) + 100) && (parseInt(x1) >= parseInt(x22) - 50 && parseInt(x1) <= parseInt(x22) + 50)) {
             //bubble.css("background-image","url(img/boom.png)");
             hit = hit + 1;
-            aaaa.hide();
+            bubble_2.hide();
 
             document.getElementById('play').play();
 
             function disp() {
-                aaaa.show();
+                bubble_2.show();
             }
             setTimeout(disp, 2000);
 
