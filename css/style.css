@@ -1,6 +1,7 @@
 body{
 	background-image: url('../img/bg.jpg');
 	background-size: cover;
+	position: fixed;
 }
 .container{
 	position:relative;
@@ -27,7 +28,7 @@ body{
 	background-image: url('../img/bg.jpg');
 	background-size: cover;*/
 }
-.bubble{
+.bubble,.bubble1,.bubble2{
 	position: relative;
 	top:500px;
 	left:600px;
@@ -39,6 +40,9 @@ body{
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
+/*.bubble1{
+	left:800px;
+}*/
 .pos{
 	margin-top: 100px;
 	background-color: white;
